@@ -3,9 +3,9 @@
 I'm a passionate developer exploring full-stack technologies and building modern solutions across **Web**, **Android**, and **Desktop platforms** using **.NET MAUI**, **C#**, and **JavaScript**.  
 Currently on a journey of continuous learning, collaboration, and building meaningful tech.
 
-<a href="https://github.com/ajay-stha">
+<p>
     <img src="https://komarev.com/ghpvc/?username=ajay-stha&style=for-the-badge">
-</a>
+</p>
 
 ---
 
