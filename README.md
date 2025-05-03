@@ -53,5 +53,3 @@ Currently on a journey of continuous learning, collaboration, and building meani
 ### 💬 Let's Connect
 - LinkedIn: [linkedin.com/in/ajay-stha](https://linkedin.com/in/ajayxshrestha)
 - Portfolio: Coming Soon!
-
-![](https://hit.yhype.me/github/profile?account_id=57993026)
