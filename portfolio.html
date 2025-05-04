@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajay Shrestha - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    /* Custom Cursor */
+    #cursor-circle {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s linear;
+      z-index: 50;
+    }
+    #cursor-stroke {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #fff;
+      background: transparent;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(1);
+      z-index: 49;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
+    }
+    #cursor-stroke.enlarged {
+      transform: translate(-50%, -50%) scale(2.8);
+    }
+    #cursor-stroke.on-white {
+      border-color: #f97316 !important; /* orange-500 */
+    }
+    a, a:hover, a:active, a:focus {
+      cursor: none !important;
+    }
+    body {
+      cursor: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200 font-sans">
+
+  <!-- Mouse Circle -->
+  <div id="cursor-circle"></div>
+  <div id="cursor-stroke"></div>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4" data-aos="fade-up">
+    <h1 class="text-4xl sm:text-5xl font-bold text-orange-400">Ajay Shrestha</h1>
+    <p class="mt-4 text-xl max-w-xl text-gray-400">
+      Associate Software Engineer | .NET MAUI, Firebase, WPF | Problem Solver
+    </p>
+    <div class="mt-6 space-x-4">
+      <a href="mailto:ajay.shrestha54@gmail.com" class="text-orange-400 hover:underline">Email</a>
+      <a href="https://www.linkedin.com/in/ajay-stha/" class="text-orange-400 hover:underline">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="px-6 py-12 bg-gray-900"  data-aos="fade-up">
+    <h2 class="text-3xl font-semibold text-center mb-8 text-white">Skills</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-sm">
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">.NET MAUI, WPF (MVVM), .NET MVC EF</div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">C#, Python, JavaScript</div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">Firebase, Firestore, SQLite</div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">LINQ, SQL, Repository Pattern</div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">LiveChartsCore, DevExpress, XAML</div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">Vue.js, jQuery, AJAX</div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">ETL, Excel Reporting</div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">Git, Agile, Team Collaboration</div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">CRM, Procurement, POS Systems</div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="px-6 py-12" data-aos="fade-up">
+      <h2 class="text-3xl font-semibold text-center mb-12 text-white">Experience</h2>
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Vertical timeline line -->
+        <div class="absolute left-1/2 top-0 w-1 h-full bg-orange-400 -translate-x-1/2 z-0"></div>
+
+        <!-- Experience 1 (Left) -->
+        <div class="mb-10 flex justify-between items-center w-full left-timeline" data-aos="fade-up" data-aos-delay="200">
+          <div class="order-1 w-6/12 text-right pr-8 relative z-10">
+            <div class="inline-block bg-gray-800 p-6 rounded-lg shadow-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-2xl group">
+              <h3 class="text-xl font-bold text-orange-300">Associate Software Engineer – Bajra Technologies</h3>
+              <p class="text-sm text-gray-400">June 2024 – Present</p>
+              <ul class="mt-2 text-sm text-gray-300 list-disc pl-5 space-y-1 text-left">
+                <li>Led dashboard integration with REST APIs.</li>
+                <li>Mentored junior developers and trainees.</li>
+                <li>Developed .NET MAUI apps with Firebase backend.</li>
+                <li>Implemented LiveChartsCore, community popups, and dynamic UI.</li>
+                <li>Built secure, scalable app structure with role-based features.</li>
+              </ul>
+              <!-- Arrow on card, pointing to timeline -->
+              <span class="hidden md:block absolute top-1/2 right-[-18px] -translate-y-1/2">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="36,18 12,8 12,28" fill="#27272a" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="order-2 w-1/12 flex flex-col items-center relative z-20 px-0">
+            <span class="w-5 h-5 bg-orange-400 rounded-full border-4 border-white block" style="position: relative; left: -50%; "></span>
+          </div>
+          <div class="order-3 w-5/12"></div>
+        </div>
+
+        <!-- Experience 2 (Right) -->
+        <div class="mb-10 flex justify-between items-center w-full right-timeline flex-row-reverse" data-aos="fade-up" data-aos-delay="200">
+          <div class="order-1 w-6/12 text-left pl-8 relative z-10">
+            <div class="inline-block bg-gray-800 p-6 rounded-lg shadow-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-2xl group">
+              <h3 class="text-xl font-bold text-orange-300">Associate Software Engineer – BISage Pvt. Ltd.</h3>
+              <p class="text-sm text-gray-400">Jan 2022 – June 2024</p>
+              <ul class="mt-2 text-sm text-gray-300 list-disc pl-5 space-y-1 text-left">
+                <li>Created .NET libraries for large-scale data ingestion.</li>
+                <li>Developed HR, POS, CRM modules using MVC and jQuery.</li>
+                <li>Improved UI/UX with custom JavaScript and reporting tools.</li>
+                <li>Managed inventory, orders, and procurement logic.</li>
+                <li>Used LINQ and stored procedures to maintain data integrity.</li>
+              </ul>
+              <!-- Arrow on card, pointing to timeline -->
+              <span class="hidden md:block absolute top-1/2 left-[-18px] -translate-y-1/2">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="0,18 24,8 24,28" fill="#27272a" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="order-2 w-1/12 flex flex-col items-center relative z-20 px-0">
+            <span class="w-5 h-5 bg-orange-400 rounded-full border-4 border-white block" style="position: relative; left: 50%; "></span>
+          </div>
+          <div class="order-3 w-5/12"></div>
+        </div>
+      </div>
+    </section>
+    <style>
+      @media (max-width: 768px) {
+        .left-timeline, .right-timeline {
+          flex-direction: column !important;
+        }
+        .left-timeline .order-1, .right-timeline .order-1 {
+          width: 100% !important;
+          text-align: left !important;
+          padding: 0 !important;
+        }
+        .left-timeline .order-3, .right-timeline .order-3 {
+          display: none;
+        }
+        .left-timeline .order-2, .right-timeline .order-2 {
+          width: 100% !important;
+          justify-content: flex-start !important;
+        }
+        .left-timeline .order-1 span[aria-hidden], .right-timeline .order-1 span[aria-hidden] {
+          display: none !important;
+        }
+      }
+    </style>
+
+  <!-- Contact -->
+  <section class="px-6 py-12" data-aos="fade-up">
+    <h2 class="text-3xl font-semibold text-center mb-8 text-white">Get in Touch</h2>
+    <div class="text-center">
+      <p class="text-gray-400 mb-4">Let’s connect! Open to roles in software development and backend engineering.</p>
+      <a href="mailto:ajay.shrestha54@gmail.com" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg">Contact Me</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 py-6 text-sm">
+    © 2025 Ajay Shrestha. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const cursor = document.getElementById('cursor-circle');
+    const stroke = document.getElementById('cursor-stroke');
+    let mouseX = 0, mouseY = 0;
+    let strokeX = 0, strokeY = 0;
+
+    // Remove logic for detecting white text and toggling .on-white class
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.top = `${mouseY}px`;
+      cursor.style.left = `${mouseX}px`;
+    });
+
+    function animateStroke() {
+      strokeX += (mouseX - strokeX) * 0.18;
+      strokeY += (mouseY - strokeY) * 0.18;
+      stroke.style.top = `${strokeY}px`;
+      stroke.style.left = `${strokeX}px`;
+      requestAnimationFrame(animateStroke);
+    }
+    animateStroke();
+
+    const enlargeSelectors = [
+      'a',
+      '.bg-gray-800', // skills divs
+      '.group' // experience cards
+    ];
+
+    function setStrokeEnlarged(enlarged) {
+      if (enlarged) {
+        stroke.classList.add('enlarged');
+      } else {
+        stroke.classList.remove('enlarged');
+      }
+    }
+
+    enlargeSelectors.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        el.addEventListener('mouseenter', () => setStrokeEnlarged(true));
+        el.addEventListener('mouseleave', () => setStrokeEnlarged(false));
+      });
+    });
+  </script>
+</body>
+</html>
