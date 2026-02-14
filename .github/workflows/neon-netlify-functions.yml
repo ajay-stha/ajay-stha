@@ -1,0 +1,32 @@
+name: Neon + Netlify Functions
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_seed:
+        description: "Run seed endpoint after schema init"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  init-and-seed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate required secrets
+        run: |
+          test -n "${{ secrets.NETLIFY_SITE_URL }}" || (echo "NETLIFY_SITE_URL is required" && exit 1)
+
+      - name: Init schema
+        run: |
+          curl --fail --show-error --silent \
+            "${{ secrets.NETLIFY_SITE_URL }}/api/init-schema"
+
+      - name: Seed portfolio data
+        if: ${{ inputs.run_seed == 'true' }}
+        run: |
+          curl --fail --show-error --silent \
+            "${{ secrets.NETLIFY_SITE_URL }}/api/seed-portfolio"
