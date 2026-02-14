@@ -1,0 +1,12 @@
+{
+  "name": "ajay-stha-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio site with Netlify Functions + Neon Postgres backend",
+  "scripts": {
+    "lint": "node --check netlify/functions/*.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}
