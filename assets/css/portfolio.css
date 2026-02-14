@@ -86,20 +86,34 @@ body {
   line-height: 1;
 }
 
-.timeline-dot-left {
+.timeline-dot {
   position: relative;
+}
+
+.timeline-dot-left {
   left: -50%;
 }
 
 .timeline-dot-right {
-  position: relative;
   left: 50%;
 }
 
+
+.timeline-line {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media (max-width: 768px) {
+  .timeline-line {
+    left: 0.625rem;
+    transform: none;
+  }
+
   .left-timeline,
   .right-timeline {
     flex-direction: column !important;
+    align-items: flex-start !important;
   }
 
   .left-timeline .order-1,
@@ -107,6 +121,7 @@ body {
     width: 100% !important;
     text-align: left !important;
     padding: 0 !important;
+    margin-top: 0.5rem;
   }
 
   .left-timeline .order-3,
@@ -116,8 +131,14 @@ body {
 
   .left-timeline .order-2,
   .right-timeline .order-2 {
-    width: 100% !important;
+    width: auto !important;
     justify-content: flex-start !important;
+    padding-left: 0 !important;
+  }
+
+  .timeline-dot-left,
+  .timeline-dot-right {
+    left: 0;
   }
 
   .left-timeline .order-1 span[aria-hidden],
