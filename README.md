@@ -1,3 +1,74 @@
+## 📱 Bajra Time Log — Mobile App
+
+A cross-platform **.NET MAUI** mobile app (Android & iOS) that lets Bajra Technologies employees
+log their work hours against tasks directly from their phones, using the company's Odoo system.
+
+### Features
+- 🔐 **Secure login** — email + password via Odoo JSON-RPC; session persisted in device SecureStorage  
+- ✅ **Auto session restore** — stay logged in across app restarts until you explicitly sign out  
+- 📋 **Task picker** — loads your active tasks from `bajra_scrum.task` automatically  
+- ⏱ **Time log form** — date picker (today by default), task, hours, and description  
+- 💬 **Inline validation** — clear error and success messages on screen  
+- 🚪 **Sign out** — destroys the server session and clears local credentials  
+
+### Getting Started
+
+#### Prerequisites
+| Tool | Version |
+|------|---------|
+| .NET SDK | 8.0+ |
+| .NET MAUI workload | `dotnet workload install maui` |
+| Android SDK / Xcode | per platform |
+| Visual Studio 2022 17.8+ **or** VS Code + MAUI extension | |
+
+#### Run on Android
+```bash
+cd BajraTimeLog
+dotnet build -f net8.0-android
+dotnet run  -f net8.0-android
+```
+
+#### Run on iOS (macOS only)
+```bash
+cd BajraTimeLog
+dotnet build -f net8.0-ios
+dotnet run  -f net8.0-ios
+```
+
+### Project Structure
+```
+BajraTimeLog/
+├── Constants.cs               # Base URL, SecureStorage keys, model names
+├── App.xaml / .cs             # Application entry, session restore on start
+├── AppShell.xaml / .cs        # Shell navigation (//login ↔ //timelog)
+├── MauiProgram.cs             # DI container registration
+│
+├── Models/
+│   └── OdooModels.cs          # OdooJsonRpcRequest, OdooTask, TimeLogEntry
+│
+├── Services/
+│   ├── IOdooService.cs        # Service interface
+│   └── OdooService.cs         # Odoo JSON-RPC implementation
+│
+├── ViewModels/
+│   ├── BaseViewModel.cs       # IsBusy / IsNotBusy base
+│   ├── LoginViewModel.cs      # Login logic
+│   └── TimeLogViewModel.cs    # Time log form logic
+│
+└── Views/
+    ├── LoginPage.xaml / .cs   # Login UI
+    └── TimeLogPage.xaml / .cs # Time log form UI
+```
+
+### Configuration
+All connection settings live in `Constants.cs`:
+```csharp
+public const string BaseUrl = "https://bajratechnologies.com";
+```
+The database name is auto-discovered from `/web/database/list` on first login and cached in SecureStorage.
+
+---
+
 ### 👋 Hi, I'm Ajay Shrestha
 
 I'm a passionate developer exploring full-stack technologies and building modern solutions across **Web**, **Android**, and **Desktop platforms** using **.NET MAUI**, **C#**, and **JavaScript**.  

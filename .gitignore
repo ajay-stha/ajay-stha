@@ -1,0 +1,40 @@
+## .NET / MAUI build artifacts
+bin/
+obj/
+.vs/
+*.user
+*.suo
+.idea/
+
+## Android
+*.apk
+*.aab
+*.ap_
+*.dex
+*.jks
+
+## iOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+xcuserdata/
+
+## macOS
+.DS_Store
+Thumbs.db
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Rider / ReSharper
+_ReSharper*/
+*.resharper
+
+## Test results
+TestResults/

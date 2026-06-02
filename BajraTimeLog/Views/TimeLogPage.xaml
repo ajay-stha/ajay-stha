@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:BajraTimeLog.ViewModels"
+    x:Class="BajraTimeLog.Views.TimeLogPage"
+    x:DataType="vm:TimeLogViewModel"
+    Title="{Binding Title}"
+    BackgroundColor="#F5F5F5">
+
+    <!-- Sign Out toolbar item -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Sign Out" Command="{Binding LogoutCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="0">
+
+            <!-- Welcome banner -->
+            <Border BackgroundColor="#E8EAF6"
+                    StrokeShape="RoundRectangle 10"
+                    Stroke="Transparent"
+                    Padding="16,12"
+                    Margin="0,0,0,20">
+                <Label Text="{Binding WelcomeMessage}"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#1a237e" />
+            </Border>
+
+            <!-- Loading tasks indicator -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               Color="#1a237e"
+                               HorizontalOptions="Center"
+                               Margin="0,0,0,16" />
+
+            <!-- Form card -->
+            <Border BackgroundColor="White"
+                    StrokeShape="RoundRectangle 12"
+                    Stroke="Transparent"
+                    Padding="20">
+                <VerticalStackLayout Spacing="18">
+
+                    <!-- Date -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Date"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#424242" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                Stroke="#E0E0E0"
+                                BackgroundColor="#FAFAFA"
+                                Padding="14,4">
+                            <DatePicker x:Name="DatePickerControl"
+                                        Date="{Binding SelectedDate}"
+                                        Format="MMMM d, yyyy"
+                                        HeightRequest="44"
+                                        TextColor="#212121" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Task -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Task *"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#424242" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                Stroke="#E0E0E0"
+                                BackgroundColor="#FAFAFA"
+                                Padding="14,4">
+                            <Picker Title="— Select a task —"
+                                    ItemsSource="{Binding Tasks}"
+                                    SelectedItem="{Binding SelectedTask}"
+                                    ItemDisplayBinding="{Binding Name}"
+                                    HeightRequest="44"
+                                    TitleColor="#9E9E9E" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Hours -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Hours Worked *"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#424242" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                Stroke="#E0E0E0"
+                                BackgroundColor="#FAFAFA"
+                                Padding="14,0">
+                            <Entry Placeholder="e.g. 2.5"
+                                   Text="{Binding Hours}"
+                                   Keyboard="Numeric"
+                                   HeightRequest="48"
+                                   BackgroundColor="Transparent"
+                                   ClearButtonVisibility="WhileEditing" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Description -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Description *"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#424242" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                Stroke="#E0E0E0"
+                                BackgroundColor="#FAFAFA"
+                                Padding="14,8">
+                            <Editor Placeholder="Describe the work done..."
+                                    Text="{Binding Description}"
+                                    MinimumHeightRequest="90"
+                                    AutoSize="TextChanges"
+                                    BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Error message -->
+                    <Border BackgroundColor="#FFEBEE"
+                            StrokeShape="RoundRectangle 6"
+                            Stroke="#FFCDD2"
+                            Padding="12,8"
+                            IsVisible="{Binding HasError}">
+                        <Label Text="{Binding ErrorMessage}"
+                               TextColor="#C62828"
+                               FontSize="13" />
+                    </Border>
+
+                    <!-- Success message -->
+                    <Border BackgroundColor="#E8F5E9"
+                            StrokeShape="RoundRectangle 6"
+                            Stroke="#A5D6A7"
+                            Padding="12,8"
+                            IsVisible="{Binding HasSuccess}">
+                        <Label Text="{Binding SuccessMessage}"
+                               TextColor="#2E7D32"
+                               FontSize="13" />
+                    </Border>
+
+                    <!-- Submit -->
+                    <Button Text="Submit Time Log"
+                            Command="{Binding SubmitCommand}"
+                            BackgroundColor="#1a237e"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CornerRadius="8"
+                            HeightRequest="52"
+                            IsEnabled="{Binding IsNotBusy}"
+                            Margin="0,4,0,0" />
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:BajraTimeLog.ViewModels"
+    x:Class="BajraTimeLog.Views.LoginPage"
+    x:DataType="vm:LoginViewModel"
+    Title="{Binding Title}"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#1a237e" Offset="0.0" />
+            <GradientStop Color="#283593" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout Padding="32,64,32,32" Spacing="0">
+
+            <!-- App icon + name -->
+            <Label Text="⏱"
+                   FontSize="64"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   Margin="0,0,0,8" />
+
+            <Label Text="Bajra Time Log"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,4" />
+
+            <Label Text="Sign in to log your hours"
+                   FontSize="14"
+                   TextColor="#BBDEFB"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,48" />
+
+            <!-- Card -->
+            <Border BackgroundColor="White"
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="Transparent"
+                    Padding="24,28">
+                <VerticalStackLayout Spacing="18">
+
+                    <!-- Email -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Email Address"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#424242" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                Stroke="#E0E0E0"
+                                BackgroundColor="#FAFAFA"
+                                Padding="14,0">
+                            <Entry Placeholder="you@bajratechnologies.com"
+                                   Text="{Binding Email}"
+                                   Keyboard="Email"
+                                   ReturnType="Next"
+                                   HeightRequest="48"
+                                   BackgroundColor="Transparent"
+                                   ClearButtonVisibility="WhileEditing" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Password -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Password"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#424242" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                Stroke="#E0E0E0"
+                                BackgroundColor="#FAFAFA"
+                                Padding="14,0">
+                            <Entry Placeholder="Enter your password"
+                                   Text="{Binding Password}"
+                                   IsPassword="True"
+                                   ReturnType="Done"
+                                   ReturnCommand="{Binding LoginCommand}"
+                                   HeightRequest="48"
+                                   BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Error message -->
+                    <Border BackgroundColor="#FFEBEE"
+                            StrokeShape="RoundRectangle 6"
+                            Stroke="#FFCDD2"
+                            Padding="12,8"
+                            IsVisible="{Binding HasError}">
+                        <Label Text="{Binding ErrorMessage}"
+                               TextColor="#C62828"
+                               FontSize="13" />
+                    </Border>
+
+                    <!-- Sign In button -->
+                    <Button Text="Sign In"
+                            Command="{Binding LoginCommand}"
+                            BackgroundColor="#1a237e"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CornerRadius="8"
+                            HeightRequest="52"
+                            IsEnabled="{Binding IsNotBusy}"
+                            Margin="0,4,0,0" />
+
+                    <!-- Loading indicator -->
+                    <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                       IsVisible="{Binding IsBusy}"
+                                       Color="#1a237e"
+                                       HorizontalOptions="Center" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="bajratechnologies.com"
+                   FontSize="12"
+                   TextColor="#90CAF9"
+                   HorizontalOptions="Center"
+                   Margin="0,24,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
