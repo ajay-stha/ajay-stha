@@ -81,7 +81,7 @@ public class OdooService : IOdooService
             if (_userId <= 0)
                 return (false, "Invalid email or password.");
 
-            var name      = result.TryGetProperty("name",       out var n)  ? n.GetString() : email;
+            var name      = result.TryGetProperty("name",       out var n)   ? n.GetString()   : email;
             var sessionId = result.TryGetProperty("session_id", out var sid) ? sid.GetString() : null;
 
             // Restore cookie explicitly in case Set-Cookie was absent

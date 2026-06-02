@@ -25,14 +25,14 @@ log their work hours against tasks directly from their phones, using the company
 ```bash
 cd BajraTimeLog
 dotnet build -f net8.0-android
-dotnet run  -f net8.0-android
+dotnet run -f net8.0-android
 ```
 
 #### Run on iOS (macOS only)
 ```bash
 cd BajraTimeLog
 dotnet build -f net8.0-ios
-dotnet run  -f net8.0-ios
+dotnet run -f net8.0-ios
 ```
 
 ### Project Structure
